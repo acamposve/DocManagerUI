@@ -1,0 +1,180 @@
+<h1 *ngIf="isAddMode">Add Receipts</h1>
+<h1 *ngIf="!isAddMode">Edit Status</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-row">
+        <div class="form-group col-3">BL</div>
+        <div class="form-group col-3">Fecha Arribo</div>
+        <div class="form-group col-3">Origen</div>
+        <div class="form-group col-3">Destino</div>
+    </div>
+
+
+
+    <div class="form-row">
+        <div class="form-group col-3">
+            <input type="text" formControlName="referencia" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.referencia.errors }" />
+            <div *ngIf="submitted && f.referencia.errors" class="invalid-feedback">
+                <div *ngIf="f.referencia.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-3"> <input type="date" formControlName="fechaArribo" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.fechaArribo.errors }" />
+            <div *ngIf="submitted && f.fechaArribo.errors" class="invalid-feedback">
+                <div *ngIf="f.fechaArribo.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-3"><input type="text" formControlName="origen" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.origen.errors }" />
+            <div *ngIf="submitted && f.origen.errors" class="invalid-feedback">
+                <div *ngIf="f.origen.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-3"> <input type="text" formControlName="destino" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.destino.errors }" />
+            <div *ngIf="submitted && f.destino.errors" class="invalid-feedback">
+                <div *ngIf="f.destino.errors.required">First Name is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-3">Status</div>
+        <div class="form-group col-3">Cantidad Containers</div>
+        <div class="form-group col-3">Mercancia</div>
+        <div class="form-group col-3">Cuentas</div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-3"> <select formControlName="statusDescription" class="form-control">
+                <option *ngFor="let status of statusEmbarquesList" [(ngValue)]="status.id">{{status.statusDescription}}
+                </option>
+            </select></div>
+        <div class="form-group col-3"> <input type="text" formControlName="cantidadContainers" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.cantidadContainers.errors }" />
+            <div *ngIf="submitted && f.cantidadContainers.errors" class="invalid-feedback">
+                <div *ngIf="f.cantidadContainers.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-3"> <input type="text" formControlName="mercancia" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.mercancia.errors }" />
+            <div *ngIf="submitted && f.mercancia.errors" class="invalid-feedback">
+                <div *ngIf="f.mercancia.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-3"> <select formControlName="accountsAvailable" class="form-control">
+                <option *ngFor="let account of accountsList" [(ngValue)]="account.id">{{account.firstName}}
+                    {{account.lastName}}
+                </option>
+            </select></div>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a routerLink="/users" class="btn btn-link">Cancel</a>
+    </div>
+
+
+
+    <div class="form-example-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-example-wrap">
+
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>BL</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int mg-t-15">
+                            <div class="form-group">
+                                <label>Fecha Arribo</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>Origen</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>Destino</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>Status</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>Cantidad de Containers</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>Mercancia</label>
+                                <div class="nk-int-st">
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int">
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Clientes</label><br />
+
+
+                            </div>
+                        </div>
+                        <div class="form-example-int">
+                            <div class="form-group">
+                                <label>Archivos Adjuntos</label>
+                                <div class="nk-int-st">
+                                    <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-example-int mg-t-15">
+                            <button class="btn btn-success notika-btn-success">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

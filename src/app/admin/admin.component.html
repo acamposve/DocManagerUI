@@ -1,0 +1,41 @@
+﻿<div class="card mt-4">
+    <h4 class="card-header">Admin</h4>
+    <div class="card-body">
+        <p>This page can be accessed <u>only by administrators</u>.</p>
+        <p class="mb-1">All users from secure (admin only) api end point:</p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="users">
+            <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Cuentas</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="accounts" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Embarques</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="embarques" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Status Embarques</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="status" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+      
+  </div>
